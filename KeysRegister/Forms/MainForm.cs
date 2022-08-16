@@ -7,7 +7,7 @@ namespace KeysRegister.Forms
             InitializeComponent();
         }
 
-        private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }

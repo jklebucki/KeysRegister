@@ -38,7 +38,7 @@
             this.scanTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.scanTextBox.Location = new System.Drawing.Point(319, 114);
+            this.scanTextBox.Location = new System.Drawing.Point(333, 114);
             this.scanTextBox.Name = "scanTextBox";
             this.scanTextBox.Size = new System.Drawing.Size(157, 27);
             this.scanTextBox.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.scanLabel.AutoSize = true;
             this.scanLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.scanLabel.Location = new System.Drawing.Point(236, 70);
+            this.scanLabel.Location = new System.Drawing.Point(250, 70);
             this.scanLabel.Name = "scanLabel";
             this.scanLabel.Size = new System.Drawing.Size(327, 41);
             this.scanLabel.TabIndex = 1;
