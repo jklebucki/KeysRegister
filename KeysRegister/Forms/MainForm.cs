@@ -1,5 +1,3 @@
-using System.Security.Cryptography.Xml;
-
 namespace KeysRegister.Forms
 {
     public partial class MainForm : Form

@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace KeysRegister.Forms
+﻿namespace KeysRegister.Forms
 {
     public enum OperationType
     {
-        In,Out
+        In, Out
     }
     public partial class KeyHandlingForm : Form
     {
@@ -26,10 +16,11 @@ namespace KeysRegister.Forms
 
         private void SetForm()
         {
-            if( _operationType == OperationType.Out )
+            if (_operationType == OperationType.Out)
             {
                 Text = "Wydanie klucza";
-            } else if( _operationType == OperationType.In )
+            }
+            else if (_operationType == OperationType.In)
             {
                 Text = "Zwrot klucza";
             }
