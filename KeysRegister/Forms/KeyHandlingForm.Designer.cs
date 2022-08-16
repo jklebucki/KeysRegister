@@ -38,10 +38,11 @@
             this.scanTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.scanTextBox.Location = new System.Drawing.Point(274, 114);
+            this.scanTextBox.Location = new System.Drawing.Point(319, 114);
             this.scanTextBox.Name = "scanTextBox";
-            this.scanTextBox.Size = new System.Drawing.Size(256, 27);
+            this.scanTextBox.Size = new System.Drawing.Size(157, 27);
             this.scanTextBox.TabIndex = 0;
+            this.scanTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.scanTextBox.UseSystemPasswordChar = true;
             this.scanTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
@@ -64,7 +65,7 @@
             this.codeLabel.Size = new System.Drawing.Size(0, 54);
             this.codeLabel.TabIndex = 2;
             // 
-            // KeyInForm
+            // KeyHandlingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,8 +73,8 @@
             this.Controls.Add(this.codeLabel);
             this.Controls.Add(this.scanLabel);
             this.Controls.Add(this.scanTextBox);
-            this.Name = "KeyInForm";
-            this.Text = "KeyInForm";
+            this.Name = "KeyHandlingForm";
+            this.Text = "KeyHandlingForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
