@@ -101,13 +101,13 @@
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.employeeToolStripMenuItem.Text = "Pracownicy";
             // 
             // keysToolStripMenuItem
             // 
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
-            this.keysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.keysToolStripMenuItem.Text = "Klucze";
             // 
             // settingsToolStripMenuItem
@@ -213,6 +213,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Keys Register - AJK Software";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
