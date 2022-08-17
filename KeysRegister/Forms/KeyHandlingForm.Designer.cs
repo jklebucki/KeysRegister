@@ -83,9 +83,6 @@
         }
 
         #endregion
-
-        private TextBox textBox1;
-        private Label labelScan;
         private Label codeLabel;
         private TextBox scanTextBox;
         private Label scanLabel;
