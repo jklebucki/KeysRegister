@@ -7,12 +7,12 @@ namespace KeysRegister.Repository
     {
         private readonly AppDbContext _appDbContext;
 
-        public IdentifierRepository()
+        public IdentifierRepository() 
         {
             _appDbContext = new AppDbContext();
         }
 
-        public Identifier? GetIdentifier(string rfidCode)
+        public Identifier? GetIdentifierByRfidCode(string rfidCode)
         {
             return _appDbContext.Identifiers.FirstOrDefault(c => c.RfidCode == rfidCode);
         }

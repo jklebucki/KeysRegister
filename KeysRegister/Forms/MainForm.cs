@@ -1,10 +1,11 @@
 using KeysRegister.Repository;
+using KeysRegister.Services;
 
 namespace KeysRegister.Forms
 {
     public partial class MainForm : Form
     {
-        private readonly IdentifierRepository _identifierRepository = new();
+        private readonly IdentifierService _identifierService = new();
         public MainForm()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace KeysRegister.Forms
 
         private void btnOut_Click(object sender, EventArgs e)
         {
-            using (KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.Out, _identifierRepository))
+            using (KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.Out, _identifierService))
             {
                 keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
                 keyHandlingForm.ShowDialog();
@@ -31,7 +32,7 @@ namespace KeysRegister.Forms
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.In, _identifierRepository);
+            KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.In, _identifierService);
             keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
             keyHandlingForm.ShowDialog();
         }

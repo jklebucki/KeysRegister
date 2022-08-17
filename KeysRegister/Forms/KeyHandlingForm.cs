@@ -1,4 +1,5 @@
 ﻿using KeysRegister.Repository;
+using KeysRegister.Services;
 
 namespace KeysRegister.Forms
 {
@@ -9,12 +10,12 @@ namespace KeysRegister.Forms
     public partial class KeyHandlingForm : Form
     {
         private readonly OperationType _operationType;
-        private readonly IdentifierRepository _identifierRepository;
-        public KeyHandlingForm(OperationType operationType, IdentifierRepository identifierRepository)
+        private readonly IdentifierService _identifierService;
+        public KeyHandlingForm(OperationType operationType, IdentifierService identifierService)
         {
             InitializeComponent();
             _operationType = operationType;
-            _identifierRepository = identifierRepository;
+            _identifierService = identifierService;
             SetForm();
         }
 
@@ -36,7 +37,7 @@ namespace KeysRegister.Forms
             var test = e.KeyChar == (char)Keys.Enter;
             if (test)
             {
-                var ident = _identifierRepository.GetIdentifier(scanTextBox.Text);
+                var ident = _identifierService.GetIdentifierByRfidCode(scanTextBox.Text);
                 if (ident != null)
                     codeLabel.Text = $"{ident.FirstName} / {ident.LastName} / {ident.Description}";
                 else
