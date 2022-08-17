@@ -53,9 +53,10 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 12, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -68,7 +69,8 @@
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -77,13 +79,13 @@
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.closeToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.closeToolStripMenuItem.Text = "Zamknij";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -93,25 +95,25 @@
             this.employeeToolStripMenuItem,
             this.keysToolStripMenuItem});
             this.definicjeToolStripMenuItem.Name = "definicjeToolStripMenuItem";
-            this.definicjeToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.definicjeToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.definicjeToolStripMenuItem.Text = "Definicje";
             // 
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.employeeToolStripMenuItem.Text = "Pracownicy";
             // 
             // keysToolStripMenuItem
             // 
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
-            this.keysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.keysToolStripMenuItem.Text = "Klucze";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.settingsToolStripMenuItem.Text = "Konfiguracja";
             // 
             // mainSplitContainer
@@ -119,7 +121,8 @@
             this.mainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.mainSplitContainer.IsSplitterFixed = true;
-            this.mainSplitContainer.Location = new System.Drawing.Point(0, 28);
+            this.mainSplitContainer.Location = new System.Drawing.Point(0, 24);
+            this.mainSplitContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainSplitContainer.Name = "mainSplitContainer";
             this.mainSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -130,9 +133,10 @@
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
-            this.mainSplitContainer.Panel2.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.mainSplitContainer.Size = new System.Drawing.Size(800, 400);
+            this.mainSplitContainer.Panel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.mainSplitContainer.Size = new System.Drawing.Size(1008, 683);
             this.mainSplitContainer.SplitterDistance = 77;
+            this.mainSplitContainer.SplitterWidth = 3;
             this.mainSplitContainer.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -146,21 +150,24 @@
             this.tableLayoutPanel1.Controls.Add(this.btnOut, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 77);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 77);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnIn
             // 
             this.btnIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnIn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnIn.Location = new System.Drawing.Point(403, 10);
+            this.btnIn.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnIn.Location = new System.Drawing.Point(507, 9);
+            this.btnIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(194, 55);
+            this.btnIn.Size = new System.Drawing.Size(246, 57);
             this.btnIn.TabIndex = 1;
             this.btnIn.Text = "Zwrot klucza";
             this.btnIn.UseVisualStyleBackColor = false;
@@ -170,9 +177,11 @@
             // 
             this.btnOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOut.Location = new System.Drawing.Point(203, 10);
+            this.btnOut.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOut.Location = new System.Drawing.Point(255, 9);
+            this.btnOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOut.Name = "btnOut";
-            this.btnOut.Size = new System.Drawing.Size(194, 55);
+            this.btnOut.Size = new System.Drawing.Size(246, 57);
             this.btnOut.TabIndex = 0;
             this.btnOut.Text = "Wydanie klucza";
             this.btnOut.UseVisualStyleBackColor = false;
@@ -184,23 +193,25 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(790, 319);
+            this.dataGridView1.Size = new System.Drawing.Size(1000, 603);
             this.dataGridView1.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.mainSplitContainer);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Keys Register - AJK Software";
             this.Load += new System.EventHandler(this.MainForm_Load);

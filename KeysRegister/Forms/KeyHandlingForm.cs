@@ -1,4 +1,6 @@
-﻿namespace KeysRegister.Forms
+﻿using KeysRegister.Repository;
+
+namespace KeysRegister.Forms
 {
     public enum OperationType
     {
@@ -7,10 +9,12 @@
     public partial class KeyHandlingForm : Form
     {
         private readonly OperationType _operationType;
-        public KeyHandlingForm(OperationType operationType)
+        private readonly IdentifierRepository _identifierRepository;
+        public KeyHandlingForm(OperationType operationType, IdentifierRepository identifierRepository)
         {
             InitializeComponent();
             _operationType = operationType;
+            _identifierRepository = identifierRepository;
             SetForm();
         }
 
@@ -32,7 +36,11 @@
             var test = e.KeyChar == (char)Keys.Enter;
             if (test)
             {
-                codeLabel.Text = scanTextBox.Text;
+                var ident = _identifierRepository.GetIdentifier(scanTextBox.Text);
+                if (ident != null)
+                    codeLabel.Text = $"{ident.FirstName} / {ident.LastName} / {ident.Description}";
+                else
+                    codeLabel.Text = "Nie znaleziono";
                 scanTextBox.Text = string.Empty;
             }
 

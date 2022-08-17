@@ -38,9 +38,10 @@
             this.scanTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.scanTextBox.Location = new System.Drawing.Point(333, 114);
+            this.scanTextBox.Location = new System.Drawing.Point(291, 86);
+            this.scanTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scanTextBox.Name = "scanTextBox";
-            this.scanTextBox.Size = new System.Drawing.Size(157, 27);
+            this.scanTextBox.Size = new System.Drawing.Size(138, 23);
             this.scanTextBox.TabIndex = 0;
             this.scanTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.scanTextBox.UseSystemPasswordChar = true;
@@ -50,9 +51,9 @@
             // 
             this.scanLabel.AutoSize = true;
             this.scanLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.scanLabel.Location = new System.Drawing.Point(250, 70);
+            this.scanLabel.Location = new System.Drawing.Point(219, 86);
             this.scanLabel.Name = "scanLabel";
-            this.scanLabel.Size = new System.Drawing.Size(327, 41);
+            this.scanLabel.Size = new System.Drawing.Size(265, 32);
             this.scanLabel.TabIndex = 1;
             this.scanLabel.Text = "Zeskanuj indentyfikator";
             // 
@@ -60,19 +61,20 @@
             // 
             this.codeLabel.AutoSize = true;
             this.codeLabel.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.codeLabel.Location = new System.Drawing.Point(250, 217);
+            this.codeLabel.Location = new System.Drawing.Point(12, 155);
             this.codeLabel.Name = "codeLabel";
-            this.codeLabel.Size = new System.Drawing.Size(0, 54);
+            this.codeLabel.Size = new System.Drawing.Size(0, 45);
             this.codeLabel.TabIndex = 2;
             // 
             // KeyHandlingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.codeLabel);
             this.Controls.Add(this.scanLabel);
             this.Controls.Add(this.scanTextBox);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "KeyHandlingForm";
             this.Text = "KeyHandlingForm";
             this.ResumeLayout(false);
