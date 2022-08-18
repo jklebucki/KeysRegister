@@ -40,14 +40,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnIn = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.releasesDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
             this.mainSplitContainer.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releasesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -132,7 +132,7 @@
             // 
             // mainSplitContainer.Panel2
             // 
-            this.mainSplitContainer.Panel2.Controls.Add(this.dataGridView1);
+            this.mainSplitContainer.Panel2.Controls.Add(this.releasesDataGridView);
             this.mainSplitContainer.Panel2.Padding = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mainSplitContainer.Size = new System.Drawing.Size(1008, 683);
             this.mainSplitContainer.SplitterDistance = 77;
@@ -189,18 +189,18 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1000, 603);
-            this.dataGridView1.TabIndex = 0;
+            this.releasesDataGridView.AllowUserToAddRows = false;
+            this.releasesDataGridView.AllowUserToDeleteRows = false;
+            this.releasesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.releasesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.releasesDataGridView.Location = new System.Drawing.Point(4, 0);
+            this.releasesDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.releasesDataGridView.Name = "dataGridView1";
+            this.releasesDataGridView.ReadOnly = true;
+            this.releasesDataGridView.RowHeadersWidth = 51;
+            this.releasesDataGridView.RowTemplate.Height = 29;
+            this.releasesDataGridView.Size = new System.Drawing.Size(1000, 603);
+            this.releasesDataGridView.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -223,7 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).EndInit();
             this.mainSplitContainer.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.releasesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,7 +235,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem plikToolStripMenuItem;
         private SplitContainer mainSplitContainer;
-        private DataGridView dataGridView1;
+        private DataGridView releasesDataGridView;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnOut;
         private Button btnIn;

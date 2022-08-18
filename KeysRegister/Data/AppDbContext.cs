@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KeysRegister.Data
 {
-    internal class AppDbContext : DbContext
+    internal sealed class AppDbContext : DbContext
     {
         public DbSet<Identifier> Identifiers { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

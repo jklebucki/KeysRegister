@@ -13,11 +13,12 @@ namespace KeysRegister.Forms
         private readonly OperationType _operationType;
         private readonly IdentifierService _identifierService;
         private readonly StringBuilder _code = new StringBuilder();
-        private ReleaseKeys _releaseKeys = new();
+        public ReleaseKeys ReleaseKeys { get; protected set; }
         public KeyHandlingForm(OperationType operationType, IdentifierService identifierService)
         {
             InitializeComponent();
-            _operationType = operationType; 
+            ReleaseKeys = new ReleaseKeys();
+            _operationType = operationType;
             _identifierService = identifierService;
             SetForm();
         }
@@ -27,12 +28,12 @@ namespace KeysRegister.Forms
             if (_operationType == OperationType.Out)
             {
                 Text = "Wydanie klucza";
-                employeeLabel.Text = "Pobierający";
+                employeeLabel.Text = "Pobierający [szukaj]";
             }
             else if (_operationType == OperationType.In)
             {
                 Text = "Zwrot klucza";
-                employeeLabel.Text = "Zwracający";
+                employeeLabel.Text = "Zwracający [szukaj]";
             }
             FillKeysDataGridView();
         }
@@ -40,7 +41,7 @@ namespace KeysRegister.Forms
         private void FillKeysDataGridView()
         {
             keysDataGridView.DataSource = null;
-            keysDataGridView.DataSource = _releaseKeys.Keys;
+            keysDataGridView.DataSource = ReleaseKeys.Keys;
             keysDataGridView.Columns[0].Visible = false;
             keysDataGridView.Columns[1].Visible = false;
             keysDataGridView.Columns[2].HeaderText = "Identyfikator";
@@ -55,11 +56,11 @@ namespace KeysRegister.Forms
 
         private void FillEmployeeData()
         {
-            if (_releaseKeys.Employee != null)
+            if (ReleaseKeys.Employee != null)
             {
-                employeeFirstNameLabel.Text = _releaseKeys.Employee.FirstName;
-                employeeLastNameLabel.Text = _releaseKeys.Employee.LastName;
-                employeeDepartmentLabel.Text = _releaseKeys.Employee.Description;
+                employeeFirstNameLabel.Text = ReleaseKeys.Employee.FirstName;
+                employeeLastNameLabel.Text = ReleaseKeys.Employee.LastName;
+                employeeDepartmentLabel.Text = ReleaseKeys.Employee.Description;
             }
         }
 
@@ -87,15 +88,38 @@ namespace KeysRegister.Forms
         private void SetReleaseKeys(Identifier identifier)
         {
             if (identifier.Type == ObjectType.Person)
-                _releaseKeys.SetEmployee(identifier);
+                ReleaseKeys.SetEmployee(identifier);
             else if (identifier.Type == ObjectType.Key)
-                _releaseKeys.AddKey(identifier);
+                ReleaseKeys.AddKey(identifier);
         }
 
         private void employeeLabel_Click(object sender, EventArgs e)
         {
-            IdentifierForm identifierForm = new IdentifierForm();
-            identifierForm.ShowDialog();
+            SelectEmployeeForm selectEmployeeForm = new SelectEmployeeForm(_identifierService);
+            selectEmployeeForm.FormClosing += SetEmployee;
+            selectEmployeeForm.ShowDialog();
+        }
+
+        private void SetEmployee(object sender, FormClosingEventArgs e)
+        {
+            var searchEmployeeForm = (SelectEmployeeForm)sender;
+            if (searchEmployeeForm.Identifier != null)
+            {
+                ReleaseKeys.SetEmployee(searchEmployeeForm.Identifier);
+                FillEmployeeData();
+            }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void applyButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

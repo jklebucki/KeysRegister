@@ -1,6 +1,6 @@
 ﻿namespace KeysRegister.Entities
 {
-    internal class ReleaseKeys
+    public class ReleaseKeys
     {
         public Identifier Employee { get; protected set; }
         public IEnumerable<Identifier> Keys { get; protected set; }

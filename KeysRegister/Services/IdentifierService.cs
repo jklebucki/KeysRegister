@@ -16,5 +16,19 @@ namespace KeysRegister.Services
             return _identifierRepository.GetIdentifierByRfidCode(rfidCode);
         }
 
+        public Identifier? GetIdentifierById(int id)
+        {
+            return _identifierRepository.GetIdentifierById(id);
+        }
+
+        public IEnumerable<Identifier> FindEmploee(string searchPhrase)
+        {
+            return _identifierRepository.FindEmploee(searchPhrase);
+        }
+
+        public void RefreshEmployee()
+        {
+            _identifierRepository.RefreshAllEmploee();
+        }
     }
 }

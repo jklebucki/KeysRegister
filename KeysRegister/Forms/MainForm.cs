@@ -25,6 +25,7 @@ namespace KeysRegister.Forms
             using (KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.Out, _identifierService))
             {
                 keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
+                keyHandlingForm.FormClosing += KeyHandlingForm_FormClosingOut;
                 keyHandlingForm.ShowDialog();
             }
         }
@@ -34,6 +35,21 @@ namespace KeysRegister.Forms
             KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.In, _identifierService);
             keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
             keyHandlingForm.ShowDialog();
+
+
+        }
+
+        private void KeyHandlingForm_FormClosingOut(object? sender, FormClosingEventArgs e)
+        {
+            if (sender != null)
+            {
+                var form = (KeyHandlingForm)sender;
+                if (form.DialogResult == DialogResult.OK)
+                {
+                    releasesDataGridView.DataSource = form.ReleaseKeys.Keys;
+                    releasesDataGridView.Invalidate();
+                }
+            }
         }
     }
 }
