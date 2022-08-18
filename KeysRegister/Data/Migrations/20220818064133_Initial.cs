@@ -33,10 +33,10 @@ namespace KeysRegister.Data.Migrations
                 {
                     { 1, "Dział IT", "Jan", "Kowalski", "0010614285", 1 },
                     { 2, "Dział Transportu", "Arkadiusz", "Nowak", "0004714539", 1 },
-                    { 3, "100", "DZG27216", "", "0011079912", 0 },
-                    { 4, "185", "DZG27215", "", "0004861400", 0 },
-                    { 5, "185", "DZG00009", "", "0004734756", 0 },
-                    { 6, "188", "DZG10001", "", "0004968393", 0 }
+                    { 3, "Id 100", "DZG27216", "Samochód osobowy", "0011079912", 0 },
+                    { 4, "Id 101", "DZG27215", "Samochód osobowy", "0004861400", 0 },
+                    { 5, "Nr boczny 185", "DZG00009", "Samochód ciężarowy", "0004734756", 0 },
+                    { 6, "Nr boczny 188", "DZG10001", "Samochód ciężarowy", "0004968393", 0 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,5 +1,4 @@
 ﻿using KeysRegister.Entities;
-using KeysRegister.Repository;
 using KeysRegister.Services;
 using System.Text;
 
@@ -56,9 +55,12 @@ namespace KeysRegister.Forms
 
         private void FillEmployeeData()
         {
-            employeeFirstNameLabel.Text = _releaseKeys.Employee.FirstName;
-            employeeLastNameLabel.Text = _releaseKeys.Employee.LastName;
-            employeeDepartmentLabel.Text = _releaseKeys.Employee.Description;
+            if (_releaseKeys.Employee != null)
+            {
+                employeeFirstNameLabel.Text = _releaseKeys.Employee.FirstName;
+                employeeLastNameLabel.Text = _releaseKeys.Employee.LastName;
+                employeeDepartmentLabel.Text = _releaseKeys.Employee.Description;
+            }
         }
 
         private void KeyHandlingForm_KeyPress(object sender, KeyPressEventArgs e)

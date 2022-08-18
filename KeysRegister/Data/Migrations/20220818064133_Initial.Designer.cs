@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KeysRegister.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220817135749_Initial")]
+    [Migration("20220818064133_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,36 +79,36 @@ namespace KeysRegister.Data.Migrations
                         new
                         {
                             Id = 3,
-                            Description = "100",
+                            Description = "Id 100",
                             FirstName = "DZG27216",
-                            LastName = "",
+                            LastName = "Samochód osobowy",
                             RfidCode = "0011079912",
                             Type = 0
                         },
                         new
                         {
                             Id = 4,
-                            Description = "185",
+                            Description = "Id 101",
                             FirstName = "DZG27215",
-                            LastName = "",
+                            LastName = "Samochód osobowy",
                             RfidCode = "0004861400",
                             Type = 0
                         },
                         new
                         {
                             Id = 5,
-                            Description = "185",
+                            Description = "Nr boczny 185",
                             FirstName = "DZG00009",
-                            LastName = "",
+                            LastName = "Samochód ciężarowy",
                             RfidCode = "0004734756",
                             Type = 0
                         },
                         new
                         {
                             Id = 6,
-                            Description = "188",
+                            Description = "Nr boczny 188",
                             FirstName = "DZG10001",
-                            LastName = "",
+                            LastName = "Samochód ciężarowy",
                             RfidCode = "0004968393",
                             Type = 0
                         });
