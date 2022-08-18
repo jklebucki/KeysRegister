@@ -17,7 +17,7 @@ namespace KeysRegister.Forms
         public KeyHandlingForm(OperationType operationType, IdentifierService identifierService)
         {
             InitializeComponent();
-            _operationType = operationType;
+            _operationType = operationType; 
             _identifierService = identifierService;
             SetForm();
         }
@@ -92,5 +92,10 @@ namespace KeysRegister.Forms
                 _releaseKeys.AddKey(identifier);
         }
 
+        private void employeeLabel_Click(object sender, EventArgs e)
+        {
+            IdentifierForm identifierForm = new IdentifierForm();
+            identifierForm.ShowDialog();
+        }
     }
 }
