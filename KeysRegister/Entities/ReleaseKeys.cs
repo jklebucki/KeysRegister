@@ -2,9 +2,9 @@
 {
     public class ReleaseKeys
     {
-        public Identifier Employee { get; protected set; }
+        public Identifier? Employee { get; protected set; }
         public IEnumerable<Identifier> Keys { get; protected set; }
-        private List<Identifier> _keys = new List<Identifier>();
+        private readonly List<Identifier> _keys = new();
 
         public ReleaseKeys()
         {
