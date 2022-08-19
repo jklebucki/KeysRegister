@@ -10,6 +10,7 @@ namespace KeysRegister.Repository
 
         public IdentifierRepository()
         {
+            _allEmployee = new List<Identifier>();
             _appDbContext = new AppDbContext();
         }
 

@@ -100,13 +100,16 @@ namespace KeysRegister.Forms
             selectEmployeeForm.ShowDialog();
         }
 
-        private void SetEmployee(object sender, FormClosingEventArgs e)
+        private void SetEmployee(object? sender, FormClosingEventArgs e)
         {
-            var searchEmployeeForm = (SelectEmployeeForm)sender;
-            if (searchEmployeeForm.Identifier != null)
+            if (sender != null)
             {
-                ReleaseKeys.SetEmployee(searchEmployeeForm.Identifier);
-                FillEmployeeData();
+                var searchEmployeeForm = (SelectEmployeeForm)sender;
+                if (searchEmployeeForm.Identifier != null)
+                {
+                    ReleaseKeys.SetEmployee(searchEmployeeForm.Identifier);
+                    FillEmployeeData();
+                }
             }
         }
 
