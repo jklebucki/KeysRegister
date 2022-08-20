@@ -121,8 +121,20 @@ namespace KeysRegister.Forms
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            if (_operationType == OperationType.Out && ReleaseKeys.Employee != null)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            else if (_operationType == OperationType.In)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            else
+            {
+                infoLabel.Text = "Nie wybrano osoby pobierającej!!!";
+            }
         }
     }
 }

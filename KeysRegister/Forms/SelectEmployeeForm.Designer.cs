@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -58,6 +58,15 @@
             this.splitContainer1.SplitterDistance = 91;
             this.splitContainer1.TabIndex = 0;
             // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(62, 41);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(186, 20);
+            this.searchLabel.TabIndex = 1;
+            this.searchLabel.Text = "Wpisz dane do wyszukania";
+            // 
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(265, 34);
@@ -81,15 +90,6 @@
             this.employeeDataGridView.TabIndex = 0;
             this.employeeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellDoubleClick);
             // 
-            // searchLabel
-            // 
-            this.searchLabel.AutoSize = true;
-            this.searchLabel.Location = new System.Drawing.Point(62, 41);
-            this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(186, 20);
-            this.searchLabel.TabIndex = 1;
-            this.searchLabel.Text = "Wpisz dane do wyszukania";
-            // 
             // SelectEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -98,7 +98,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "SelectEmployeeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SelectEmployeeForm";
+            this.Text = "Wybór osoby";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -1,14 +1,13 @@
 using KeysRegister.Data;
 using KeysRegister.Repository;
 using KeysRegister.Services;
-using System;
 
 namespace KeysRegister.Forms
 {
     internal partial class MainForm : Form
     {
         private readonly AppDbContext _appDbContext = new();
-        private readonly IdentifierRepository _identifierRepository; 
+        private readonly IdentifierRepository _identifierRepository;
         private readonly IdentifierService _identifierService;
         private readonly ReleasedKeyRepository _releasedKeyRepository;
         private readonly ReleasedKeyService _releasedKeyService;
@@ -29,7 +28,7 @@ namespace KeysRegister.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            SetReleasesDataGridView();
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -54,7 +53,16 @@ namespace KeysRegister.Forms
 
         private void KeyHandlingForm_FormClosingIn(object? sender, FormClosingEventArgs e)
         {
-           
+            if (sender != null)
+            {
+                var form = (KeyHandlingForm)sender;
+                if (form.DialogResult == DialogResult.OK)
+                {
+
+                    _releasedKeyService.ReturnKey(form.ReleaseKeys);
+                    SetReleasesDataGridView();
+                }
+            }
         }
 
         private void KeyHandlingForm_FormClosingOut(object? sender, FormClosingEventArgs e)
@@ -64,10 +72,40 @@ namespace KeysRegister.Forms
                 var form = (KeyHandlingForm)sender;
                 if (form.DialogResult == DialogResult.OK)
                 {
-                    releasesDataGridView.DataSource = form.ReleaseKeys.Keys;
-                    releasesDataGridView.Invalidate();
+
+                    _releasedKeyService.AddReleaseKey(form.ReleaseKeys);
+                    SetReleasesDataGridView();
                 }
             }
+        }
+
+        private void SetReleasesDataGridView()
+        {
+            releasesDataGridView.DataSource = null;
+            releasesDataGridView.DataSource = _releasedKeyService.GetAllReleasedKeys().OrderByDescending(d => d.ReleaseDate).ToList();
+            releasesDataGridView.Columns[0].Visible = false;
+            releasesDataGridView.Columns[1].Visible = false;
+            releasesDataGridView.Columns[2].HeaderText = "Nazwa klucza";
+            releasesDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[3].HeaderText = "Informacja o kluczu";
+            releasesDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[4].HeaderText = "Opis klucza";
+            releasesDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[5].Visible = false;
+            releasesDataGridView.Columns[6].HeaderText = "Imiê";
+            releasesDataGridView.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[7].HeaderText = "Nazwisko";
+            releasesDataGridView.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[8].HeaderText = "Opis";
+            releasesDataGridView.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Columns[9].HeaderText = "Data wydania";
+            releasesDataGridView.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            releasesDataGridView.Invalidate();
+        }
+
+        private void keyHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,9 +24,19 @@ namespace KeysRegister.Services
             }
         }
 
-        private IEnumerable<ReleasedKey> SetReleaseKey(ReleaseKeys releaseKeys)
+        public void ReturnKey(ReleaseKeys releaseKeys)
         {
-            List<ReleasedKey> releaseKeysList = new List<ReleasedKey>();
+            var releasedKeysList = SetReleaseKey(releaseKeys);
+            foreach (var releaseKey in releasedKeysList)
+            {
+                if (_releasedKeyRepository.CheckIfKeyIsReleased(releaseKey.KeyId))
+                    _releasedKeyRepository.RemoveReleasedKey(releaseKey, releaseKeys.Employee);
+            }
+        }
+
+        private static IEnumerable<ReleasedKey> SetReleaseKey(ReleaseKeys releaseKeys)
+        {
+            List<ReleasedKey> releaseKeysList = new();
             foreach (var releaseKey in releaseKeys.Keys)
             {
                 releaseKeysList.Add(new ReleasedKey(
@@ -34,14 +44,19 @@ namespace KeysRegister.Services
                     releaseKey.FirstName,
                     releaseKey.LastName,
                     releaseKey.Description,
-                    releaseKeys.Employee.Id,
-                    releaseKeys.Employee.FirstName,
-                    releaseKeys.Employee.LastName,
-                    releaseKeys.Employee.Description,
-                    DateTime.UtcNow.Date
+                    releaseKeys.Employee != null ? releaseKeys.Employee.Id : 0,
+                    releaseKeys.Employee != null ? releaseKeys.Employee.FirstName : "",
+                    releaseKeys.Employee != null ? releaseKeys.Employee.LastName : "",
+                    releaseKeys.Employee != null ? releaseKeys.Employee.Description : "",
+                    DateTime.UtcNow
                     ));
             }
             return releaseKeysList;
+        }
+
+        public IEnumerable<ReleasedKey> GetAllReleasedKeys()
+        {
+            return _releasedKeyRepository.GetAll();
         }
     }
 }

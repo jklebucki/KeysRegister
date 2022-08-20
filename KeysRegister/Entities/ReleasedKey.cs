@@ -2,6 +2,7 @@
 {
     internal class ReleasedKey
     {
+        public int Id { get; protected set; }
         public int KeyId { get; protected set; }
         public string? KeyName { get; protected set; }
         public string? KeyInfo { get; protected set; }
@@ -12,7 +13,9 @@
         public string? EmployeeDescription { get; protected set; }
         public DateTime ReleaseDate { get; protected set; }
 
-        public ReleasedKey(int keyId, string? keyName, string? keyInfo, string? keyDescription, int employeeId, string? employeeFirstName, string? employeeLastName, string? employeeDescription, DateTime releaseDate)
+        public ReleasedKey(int keyId, string? keyName, string? keyInfo, string? keyDescription,
+            int employeeId, string? employeeFirstName, string? employeeLastName,
+            string? employeeDescription, DateTime releaseDate)
         {
             KeyId = keyId;
             KeyName = keyName;
@@ -32,7 +35,8 @@
             KeyDescription = keyDescription;
         }
 
-        public void UpdateKeyRelease(int employeeId, string employeeFirstName, string employeeLastName, string employeeDescription, DateTime releaseDate)
+        public void UpdateKeyRelease(int employeeId, string employeeFirstName, string employeeLastName,
+            string employeeDescription, DateTime releaseDate)
         {
             EmployeeId = employeeId;
             EmployeeFirstName = employeeFirstName;

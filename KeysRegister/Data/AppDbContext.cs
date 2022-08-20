@@ -7,6 +7,7 @@ namespace KeysRegister.Data
     {
         public DbSet<Identifier> Identifiers { get; set; }
         public DbSet<ReleasedKey> ReleasedKeys { get; set; }
+        public DbSet<ReleasedKeyHistory> ReleasedKeysHistory { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseNpgsql("Host=localhost;Database=KeyRegisters;Username=root;Password=sasa");
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -14,6 +15,11 @@ namespace KeysRegister.Data
             modelBuilder.Entity<Identifier>()
                 .HasIndex(i => i.RfidCode)
                 .IsUnique();
+
+            modelBuilder.Entity<ReleasedKey>()
+                .HasIndex(i => i.KeyId)
+                .IsUnique();
+
             modelBuilder.Entity<Identifier>()
                 .HasData(
                     new Identifier(1, "0010614285", "Jan", "Kowalski", "Dział IT", ObjectType.Person),
