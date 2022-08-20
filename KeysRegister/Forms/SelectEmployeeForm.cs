@@ -3,7 +3,7 @@ using KeysRegister.Services;
 
 namespace KeysRegister.Forms
 {
-    public partial class SelectEmployeeForm : Form
+    internal partial class SelectEmployeeForm : Form
     {
         public Identifier? Identifier { get; protected set; }
         private readonly IdentifierService _identifierService;

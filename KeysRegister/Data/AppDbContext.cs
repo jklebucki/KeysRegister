@@ -6,6 +6,7 @@ namespace KeysRegister.Data
     internal sealed class AppDbContext : DbContext
     {
         public DbSet<Identifier> Identifiers { get; set; }
+        public DbSet<ReleasedKey> ReleasedKeys { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseNpgsql("Host=localhost;Database=KeyRegisters;Username=root;Password=sasa");
         protected override void OnModelCreating(ModelBuilder modelBuilder)

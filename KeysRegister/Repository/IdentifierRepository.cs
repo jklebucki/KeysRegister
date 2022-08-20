@@ -3,15 +3,15 @@ using KeysRegister.Entities;
 
 namespace KeysRegister.Repository
 {
-    public class IdentifierRepository
+    internal class IdentifierRepository
     {
         private readonly AppDbContext _appDbContext;
         private IEnumerable<Identifier> _allEmployee;
 
-        public IdentifierRepository()
+        public IdentifierRepository(AppDbContext appDbContext)
         {
             _allEmployee = new List<Identifier>();
-            _appDbContext = new AppDbContext();
+            _appDbContext = appDbContext;
         }
 
         public Identifier? GetIdentifierByRfidCode(string rfidCode)

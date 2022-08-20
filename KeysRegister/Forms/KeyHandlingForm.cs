@@ -8,7 +8,7 @@ namespace KeysRegister.Forms
     {
         In, Out
     }
-    public partial class KeyHandlingForm : Form
+    internal partial class KeyHandlingForm : Form
     {
         private readonly OperationType _operationType;
         private readonly IdentifierService _identifierService;

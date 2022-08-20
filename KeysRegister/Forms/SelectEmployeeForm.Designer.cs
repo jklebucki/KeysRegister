@@ -31,6 +31,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -47,6 +48,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.searchLabel);
             this.splitContainer1.Panel1.Controls.Add(this.searchTextBox);
             // 
             // splitContainer1.Panel2
@@ -58,7 +60,7 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(218, 30);
+            this.searchTextBox.Location = new System.Drawing.Point(265, 34);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(345, 27);
             this.searchTextBox.TabIndex = 0;
@@ -78,6 +80,15 @@
             this.employeeDataGridView.Size = new System.Drawing.Size(800, 355);
             this.employeeDataGridView.TabIndex = 0;
             this.employeeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellDoubleClick);
+            // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(62, 41);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(186, 20);
+            this.searchLabel.TabIndex = 1;
+            this.searchLabel.Text = "Wpisz dane do wyszukania";
             // 
             // SelectEmployeeForm
             // 
@@ -103,5 +114,6 @@
         private SplitContainer splitContainer1;
         private TextBox searchTextBox;
         private DataGridView employeeDataGridView;
+        private Label searchLabel;
     }
 }

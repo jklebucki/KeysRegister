@@ -3,12 +3,12 @@ using KeysRegister.Repository;
 
 namespace KeysRegister.Services
 {
-    public class IdentifierService
+    internal class IdentifierService
     {
         private readonly IdentifierRepository _identifierRepository;
-        public IdentifierService()
+        public IdentifierService(IdentifierRepository identifierRepository)
         {
-            _identifierRepository = new IdentifierRepository();
+            _identifierRepository = identifierRepository;
         }
 
         public Identifier? GetIdentifierByRfidCode(string rfidCode)

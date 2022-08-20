@@ -1,12 +1,24 @@
+using KeysRegister.Data;
+using KeysRegister.Repository;
 using KeysRegister.Services;
+using System;
 
 namespace KeysRegister.Forms
 {
-    public partial class MainForm : Form
+    internal partial class MainForm : Form
     {
-        private readonly IdentifierService _identifierService = new();
+        private readonly AppDbContext _appDbContext = new();
+        private readonly IdentifierRepository _identifierRepository; 
+        private readonly IdentifierService _identifierService;
+        private readonly ReleasedKeyRepository _releasedKeyRepository;
+        private readonly ReleasedKeyService _releasedKeyService;
         public MainForm()
         {
+            _identifierRepository = new IdentifierRepository(_appDbContext);
+            _identifierService = new IdentifierService(_identifierRepository);
+            _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
+            _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
+
             InitializeComponent();
         }
 
@@ -32,11 +44,17 @@ namespace KeysRegister.Forms
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.In, _identifierService);
-            keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
-            keyHandlingForm.ShowDialog();
+            using (KeyHandlingForm keyHandlingForm = new KeyHandlingForm(OperationType.In, _identifierService))
+            {
+                keyHandlingForm.StartPosition = FormStartPosition.CenterParent;
+                keyHandlingForm.FormClosing += KeyHandlingForm_FormClosingIn;
+                keyHandlingForm.ShowDialog();
+            }
+        }
 
-
+        private void KeyHandlingForm_FormClosingIn(object? sender, FormClosingEventArgs e)
+        {
+           
         }
 
         private void KeyHandlingForm_FormClosingOut(object? sender, FormClosingEventArgs e)
