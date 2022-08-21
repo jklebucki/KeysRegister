@@ -118,14 +118,16 @@
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.employeeToolStripMenuItem.Text = "Pracownicy";
+            this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // keysToolStripMenuItem
             // 
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
-            this.keysToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.keysToolStripMenuItem.Text = "Klucze";
+            this.keysToolStripMenuItem.Click += new System.EventHandler(this.keysToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 

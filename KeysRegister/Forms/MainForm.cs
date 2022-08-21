@@ -1,4 +1,5 @@
 using KeysRegister.Data;
+using KeysRegister.Entities;
 using KeysRegister.Repository;
 using KeysRegister.Services;
 
@@ -11,7 +12,7 @@ namespace KeysRegister.Forms
         private readonly IdentifierService _identifierService;
         private readonly ReleasedKeyRepository _releasedKeyRepository;
         private readonly ReleasedKeyService _releasedKeyService;
-        public MainForm()
+        internal MainForm()
         {
             _identifierRepository = new IdentifierRepository(_appDbContext);
             _identifierService = new IdentifierService(_identifierRepository);
@@ -106,7 +107,19 @@ namespace KeysRegister.Forms
         private void keyHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             KeyHistoryForm keyHistoryForm = new KeyHistoryForm(_identifierService);
-            keyHistoryForm.ShowDialog();
+            keyHistoryForm.ShowDialog(this);
+        }
+
+        private void employeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IdentifierForm identifierForm = new IdentifierForm(_identifierService, ObjectType.Person);
+            identifierForm.ShowDialog(this);
+        }
+
+        private void keysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IdentifierForm identifierForm = new IdentifierForm(_identifierService, ObjectType.Key);
+            identifierForm.ShowDialog(this);
         }
     }
 }

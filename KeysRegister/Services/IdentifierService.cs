@@ -41,9 +41,24 @@ namespace KeysRegister.Services
             _identifierRepository.RefreshAllEmploee();
         }
 
+        internal IEnumerable<Identifier> GetAllEmployee()
+        {
+            return _identifierRepository.GetAllEmployee();
+        }
+
         internal void RefreshKeys()
         {
             _identifierRepository.RefreshAllKeys();
+        }
+
+        internal IEnumerable<Identifier> GetAllKeys()
+        {
+            return _identifierRepository.GetAllKeys();
+        }
+
+        internal int AddIdentifier(Identifier identifier)
+        {
+            return _identifierRepository.AddIdentifier(identifier);
         }
     }
 }

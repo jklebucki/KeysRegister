@@ -56,5 +56,22 @@ namespace KeysRegister.Repository
         {
             return _appDbContext.ReleasedKeysHistory.Where(e => e.KeyId == keyId && e.OperationDate >= dateFrom).ToList();
         }
+
+        internal IEnumerable<Identifier> GetAllEmployee()
+        {
+            return _appDbContext.Identifiers.Where(e => e.Type == ObjectType.Person).ToList();
+        }
+
+        internal IEnumerable<Identifier> GetAllKeys()
+        {
+            return _appDbContext.Identifiers.Where(e => e.Type == ObjectType.Key).ToList();
+        }
+
+        internal int AddIdentifier(Identifier identifier)
+        {
+            _appDbContext.Add(identifier);
+            _appDbContext.SaveChanges();
+            return identifier.Id;
+        }
     }
 }
