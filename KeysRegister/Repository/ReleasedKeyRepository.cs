@@ -1,7 +1,6 @@
 ﻿using KeysRegister.Data;
 using KeysRegister.Entities;
 using KeysRegister.Mapper;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace KeysRegister.Repository
 {

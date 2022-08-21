@@ -12,7 +12,7 @@ namespace KeysRegister.Mapper
                 returnPerson == null ? releasedKey.EmployeeId : returnPerson.Id,
                 returnPerson == null ? releasedKey.EmployeeFirstName : returnPerson.FirstName,
                 returnPerson == null ? releasedKey.EmployeeLastName : returnPerson.LastName,
-                returnPerson == null ? releasedKey.EmployeeDescription: returnPerson.Description,
+                returnPerson == null ? releasedKey.EmployeeDescription : returnPerson.Description,
                 keyOperatiomType, operationDate
                 );
         }
