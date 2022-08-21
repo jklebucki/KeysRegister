@@ -52,9 +52,9 @@ namespace KeysRegister.Repository
             return _appDbContext.Identifiers.FirstOrDefault(c => c.Id == id);
         }
 
-        internal IEnumerable<ReleasedKeyHistory> GetKeyHistory(int keyId)
+        internal IEnumerable<ReleasedKeyHistory> GetKeyHistory(int keyId, DateTime dateFrom)
         {
-            return _appDbContext.ReleasedKeysHistory.Where(e => e.KeyId == keyId).ToList();
+            return _appDbContext.ReleasedKeysHistory.Where(e => e.KeyId == keyId && e.OperationDate >= dateFrom).ToList();
         }
     }
 }

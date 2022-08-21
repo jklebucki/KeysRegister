@@ -32,6 +32,8 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.definicjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keysToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,8 +43,6 @@
             this.btnIn = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
             this.releasesDataGridView = new System.Windows.Forms.DataGridView();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.keyHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
@@ -90,6 +90,21 @@
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.closeToolStripMenuItem.Text = "Zamknij";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.keyHistoryToolStripMenuItem});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
+            this.reportsToolStripMenuItem.Text = "Raporty";
+            // 
+            // keyHistoryToolStripMenuItem
+            // 
+            this.keyHistoryToolStripMenuItem.Name = "keyHistoryToolStripMenuItem";
+            this.keyHistoryToolStripMenuItem.Size = new System.Drawing.Size(189, 26);
+            this.keyHistoryToolStripMenuItem.Text = "Historia klucza";
+            this.keyHistoryToolStripMenuItem.Click += new System.EventHandler(this.keyHistoryToolStripMenuItem_Click);
             // 
             // definicjeToolStripMenuItem
             // 
@@ -193,25 +208,11 @@
             this.releasesDataGridView.Location = new System.Drawing.Point(5, 0);
             this.releasesDataGridView.Name = "releasesDataGridView";
             this.releasesDataGridView.ReadOnly = true;
+            this.releasesDataGridView.RowHeadersVisible = false;
             this.releasesDataGridView.RowHeadersWidth = 51;
             this.releasesDataGridView.RowTemplate.Height = 29;
             this.releasesDataGridView.Size = new System.Drawing.Size(1252, 844);
             this.releasesDataGridView.TabIndex = 0;
-            // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.keyHistoryToolStripMenuItem});
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
-            this.reportsToolStripMenuItem.Text = "Raporty";
-            // 
-            // keyHistoryToolStripMenuItem
-            // 
-            this.keyHistoryToolStripMenuItem.Name = "keyHistoryToolStripMenuItem";
-            this.keyHistoryToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.keyHistoryToolStripMenuItem.Text = "Historia klucza";
-            this.keyHistoryToolStripMenuItem.Click += new System.EventHandler(this.keyHistoryToolStripMenuItem_Click);
             // 
             // MainForm
             // 

@@ -46,11 +46,11 @@ namespace KeysRegister.Forms
             employeeDataGridView.Columns[0].Visible = false;
             employeeDataGridView.Columns[1].Visible = false;
             employeeDataGridView.Columns[2].HeaderText = "Imię";
-            employeeDataGridView.Columns[2].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            employeeDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             employeeDataGridView.Columns[3].HeaderText = "Nazwisko";
-            employeeDataGridView.Columns[3].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            employeeDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             employeeDataGridView.Columns[4].HeaderText = "Dział";
-            employeeDataGridView.Columns[4].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            employeeDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             employeeDataGridView.Columns[5].Visible = false;
             employeeDataGridView.Invalidate();
         }

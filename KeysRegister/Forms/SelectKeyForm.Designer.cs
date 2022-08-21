@@ -48,6 +48,7 @@
             this.keysDataGridView.Location = new System.Drawing.Point(0, 0);
             this.keysDataGridView.Name = "keysDataGridView";
             this.keysDataGridView.ReadOnly = true;
+            this.keysDataGridView.RowHeadersVisible = false;
             this.keysDataGridView.RowHeadersWidth = 51;
             this.keysDataGridView.RowTemplate.Height = 29;
             this.keysDataGridView.Size = new System.Drawing.Size(800, 355);
@@ -99,7 +100,7 @@
             this.Controls.Add(this.splitContainer);
             this.Name = "SelectKeyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SelectKeyForm";
+            this.Text = "Wybór klucza";
             ((System.ComponentModel.ISupportInitialize)(this.keysDataGridView)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();

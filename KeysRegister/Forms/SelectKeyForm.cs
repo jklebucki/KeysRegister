@@ -58,11 +58,11 @@ namespace KeysRegister.Forms
             keysDataGridView.Columns[0].Visible = false;
             keysDataGridView.Columns[1].Visible = false;
             keysDataGridView.Columns[2].HeaderText = "Nazwa klucza";
-            keysDataGridView.Columns[2].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            keysDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             keysDataGridView.Columns[3].HeaderText = "Informacja o kluczu";
-            keysDataGridView.Columns[3].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            keysDataGridView.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             keysDataGridView.Columns[4].HeaderText = "Opis";
-            keysDataGridView.Columns[4].AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            keysDataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             keysDataGridView.Columns[5].Visible = false;
             keysDataGridView.Invalidate();
         }

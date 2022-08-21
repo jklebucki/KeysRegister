@@ -89,6 +89,7 @@
             this.keysDataGridView.Location = new System.Drawing.Point(3, 153);
             this.keysDataGridView.Name = "keysDataGridView";
             this.keysDataGridView.ReadOnly = true;
+            this.keysDataGridView.RowHeadersVisible = false;
             this.keysDataGridView.RowHeadersWidth = 51;
             this.keysDataGridView.RowTemplate.Height = 29;
             this.keysDataGridView.Size = new System.Drawing.Size(794, 190);

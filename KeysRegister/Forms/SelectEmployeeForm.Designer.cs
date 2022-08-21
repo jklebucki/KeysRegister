@@ -84,6 +84,7 @@
             this.employeeDataGridView.Location = new System.Drawing.Point(0, 0);
             this.employeeDataGridView.Name = "employeeDataGridView";
             this.employeeDataGridView.ReadOnly = true;
+            this.employeeDataGridView.RowHeadersVisible = false;
             this.employeeDataGridView.RowHeadersWidth = 51;
             this.employeeDataGridView.RowTemplate.Height = 29;
             this.employeeDataGridView.Size = new System.Drawing.Size(800, 355);

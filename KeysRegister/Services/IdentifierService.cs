@@ -26,9 +26,9 @@ namespace KeysRegister.Services
             return _identifierRepository.FindEmploee(searchPhrase);
         }
 
-        internal IEnumerable<ReleasedKeyHistory> KeyHistory(int keyId)
+        internal IEnumerable<ReleasedKeyHistory> KeyHistory(int keyId, DateTime dateFrom)
         {
-            return _identifierRepository.GetKeyHistory(keyId);
+            return _identifierRepository.GetKeyHistory(keyId, dateFrom);
         }
 
         internal IEnumerable<Identifier> FindKey(string searchPhrase)
