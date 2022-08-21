@@ -52,7 +52,11 @@ namespace KeysRegister.Repository
             }
             else
             {
-                throw new Exception("Key not found"); 
+                var releasedKeyHistory = Mapping.MapReleasedKeyToReleasedKeyHistory(releasedKey, returnPerson, KeyOperatiomType.Return, DateTime.UtcNow);
+                if (releasedKeyHistory == null)
+                    throw new Exception("ReleasedKeyHistory object not set");
+                _appDbContext.ReleasedKeysHistory.Add(releasedKeyHistory);
+                _appDbContext.SaveChanges();
             }
 
         }

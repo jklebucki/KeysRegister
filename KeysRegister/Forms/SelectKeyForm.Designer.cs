@@ -1,6 +1,6 @@
 ﻿namespace KeysRegister.Forms
 {
-    partial class SelectEmployeeForm
+    partial class SelectKeyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.keysDataGridView = new System.Windows.Forms.DataGridView();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.searchLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.employeeDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.keysDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // keysDataGridView
+            // 
+            this.keysDataGridView.AllowUserToAddRows = false;
+            this.keysDataGridView.AllowUserToDeleteRows = false;
+            this.keysDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.keysDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.keysDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.keysDataGridView.Name = "keysDataGridView";
+            this.keysDataGridView.ReadOnly = true;
+            this.keysDataGridView.RowHeadersWidth = 51;
+            this.keysDataGridView.RowTemplate.Height = 29;
+            this.keysDataGridView.Size = new System.Drawing.Size(800, 355);
+            this.keysDataGridView.TabIndex = 0;
+            this.keysDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.keysDataGridView_CellDoubleClick);
             // 
             // splitContainer
             // 
@@ -53,10 +68,10 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.employeeDataGridView);
+            this.splitContainer.Panel2.Controls.Add(this.keysDataGridView);
             this.splitContainer.Size = new System.Drawing.Size(800, 450);
             this.splitContainer.SplitterDistance = 91;
-            this.splitContainer.TabIndex = 0;
+            this.splitContainer.TabIndex = 1;
             // 
             // searchLabel
             // 
@@ -74,46 +89,32 @@
             this.searchTextBox.Size = new System.Drawing.Size(345, 27);
             this.searchTextBox.TabIndex = 0;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            this.searchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchTextBox_KeyPress);
             // 
-            // employeeDataGridView
-            // 
-            this.employeeDataGridView.AllowUserToAddRows = false;
-            this.employeeDataGridView.AllowUserToDeleteRows = false;
-            this.employeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.employeeDataGridView.Name = "employeeDataGridView";
-            this.employeeDataGridView.ReadOnly = true;
-            this.employeeDataGridView.RowHeadersWidth = 51;
-            this.employeeDataGridView.RowTemplate.Height = 29;
-            this.employeeDataGridView.Size = new System.Drawing.Size(800, 355);
-            this.employeeDataGridView.TabIndex = 0;
-            this.employeeDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeDataGridView_CellDoubleClick);
-            // 
-            // SelectEmployeeForm
+            // SelectKeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer);
-            this.Name = "SelectEmployeeForm";
+            this.Name = "SelectKeyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Wybór osoby";
+            this.Text = "SelectKeyForm";
+            ((System.ComponentModel.ISupportInitialize)(this.keysDataGridView)).EndInit();
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.employeeDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private DataGridView keysDataGridView;
         private SplitContainer splitContainer;
-        private TextBox searchTextBox;
-        private DataGridView employeeDataGridView;
         private Label searchLabel;
+        private TextBox searchTextBox;
     }
 }

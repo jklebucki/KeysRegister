@@ -57,8 +57,7 @@ namespace KeysRegister.Forms
 
         private void employeeDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int employeeId = 0;
-            if (int.TryParse(employeeDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out employeeId))
+            if (int.TryParse(employeeDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString(), out int employeeId))
             {
                 Identifier = _identifierService.GetIdentifierById(employeeId);
                 Close();

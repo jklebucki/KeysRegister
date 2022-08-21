@@ -105,7 +105,8 @@ namespace KeysRegister.Forms
 
         private void keyHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            KeyHistoryForm keyHistoryForm = new KeyHistoryForm(_identifierService);
+            keyHistoryForm.ShowDialog();
         }
     }
 }

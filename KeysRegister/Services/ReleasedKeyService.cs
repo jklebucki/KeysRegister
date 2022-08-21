@@ -29,8 +29,7 @@ namespace KeysRegister.Services
             var releasedKeysList = SetReleaseKey(releaseKeys);
             foreach (var releaseKey in releasedKeysList)
             {
-                if (_releasedKeyRepository.CheckIfKeyIsReleased(releaseKey.KeyId))
-                    _releasedKeyRepository.RemoveReleasedKey(releaseKey, releaseKeys.Employee);
+                _releasedKeyRepository.RemoveReleasedKey(releaseKey, releaseKeys.Employee);
             }
         }
 

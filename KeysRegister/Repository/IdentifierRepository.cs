@@ -7,19 +7,21 @@ namespace KeysRegister.Repository
     {
         private readonly AppDbContext _appDbContext;
         private IEnumerable<Identifier> _allEmployee;
+        private IEnumerable<Identifier> _allKeys;
 
-        public IdentifierRepository(AppDbContext appDbContext)
+        internal IdentifierRepository(AppDbContext appDbContext)
         {
             _allEmployee = new List<Identifier>();
+            _allKeys = new List<Identifier>();
             _appDbContext = appDbContext;
         }
 
-        public Identifier? GetIdentifierByRfidCode(string rfidCode)
+        internal Identifier? GetIdentifierByRfidCode(string rfidCode)
         {
             return _appDbContext.Identifiers.FirstOrDefault(c => c.RfidCode == rfidCode);
         }
 
-        public IEnumerable<Identifier> FindEmploee(string searchPhrase)
+        internal IEnumerable<Identifier> FindEmploee(string searchPhrase)
         {
             searchPhrase = searchPhrase.ToLower();
             return _allEmployee.Where(e => e.FirstName.ToLower().Contains(searchPhrase)
@@ -27,14 +29,32 @@ namespace KeysRegister.Repository
                      || e.Description.ToLower().Contains(searchPhrase)).ToList();
         }
 
-        public void RefreshAllEmploee()
+        internal IEnumerable<Identifier> FindKey(string searchPhrase)
+        {
+            return _allKeys.Where(e => e.RfidCode.ToLower().Contains(searchPhrase)
+                     || e.FirstName.ToLower().Contains(searchPhrase)
+                     || e.LastName.ToLower().Contains(searchPhrase)
+                     || e.Description.ToLower().Contains(searchPhrase)).ToList();
+        }
+
+        internal void RefreshAllEmploee()
         {
             _allEmployee = _appDbContext.Identifiers.Where(e => e.Type == ObjectType.Person).ToList();
+        }
+
+        internal void RefreshAllKeys()
+        {
+            _allKeys = _appDbContext.Identifiers.Where(e => e.Type == ObjectType.Key).ToList();
         }
 
         internal Identifier? GetIdentifierById(int id)
         {
             return _appDbContext.Identifiers.FirstOrDefault(c => c.Id == id);
+        }
+
+        internal IEnumerable<ReleasedKeyHistory> GetKeyHistory(int keyId)
+        {
+            return _appDbContext.ReleasedKeysHistory.Where(e => e.KeyId == keyId).ToList();
         }
     }
 }
