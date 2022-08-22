@@ -9,11 +9,5 @@
             DefaultReportDays = 30;
             DatabaseSettings = new DatabaseSettings();
         }
-
-        internal void SetDatabaseSettings(DatabaseSettings databaseSettings)
-        {
-            DatabaseSettings = databaseSettings;
-        }
-
     }
 }

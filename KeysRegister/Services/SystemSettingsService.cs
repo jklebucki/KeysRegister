@@ -11,7 +11,7 @@ namespace KeysRegister.Services
 
         public SystemSettingsService()
         {
-            _settingsPath = Path.Combine(Directory.GetCurrentDirectory(), "SystemSettings.json");
+            _settingsPath = SetSettingsPath();
             SystemSettings = new SystemSettings();
         }
 
@@ -36,8 +36,12 @@ namespace KeysRegister.Services
 
         internal void SetConnectionString(string host, string database, string username, string password)
         {
-            DatabaseSettings databaseSettings = new DatabaseSettings(host, database, username, password);
-            SystemSettings.SetDatabaseSettings(databaseSettings);
+            SystemSettings.DatabaseSettings.SetDatabaseSettings(host, database, username, password);
+        }
+
+        private string SetSettingsPath()
+        {
+            return Path.Combine(Directory.GetCurrentDirectory(), "SystemSettings.json");
         }
     }
 }

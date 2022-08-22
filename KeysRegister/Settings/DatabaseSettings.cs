@@ -15,6 +15,14 @@
             Password = password;
         }
 
+        internal void SetDatabaseSettings(string host, string database, string username, string password)
+        {
+            Host = host;
+            Database = database;
+            Username = username;
+            Password = password;
+        }
+
         internal void SetDefaultData()
         {
             Host = "localhost";
