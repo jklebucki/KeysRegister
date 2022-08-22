@@ -5,11 +5,17 @@ namespace KeysRegister.Data
 {
     internal sealed class AppDbContext : DbContext
     {
+        private readonly string _connectionString;
+        internal AppDbContext(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public DbSet<Identifier> Identifiers { get; set; }
         public DbSet<ReleasedKey> ReleasedKeys { get; set; }
         public DbSet<ReleasedKeyHistory> ReleasedKeysHistory { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseNpgsql("Host=localhost;Database=KeyRegisters;Username=root;Password=sasa");
+            => optionsBuilder.UseNpgsql(_connectionString);
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Identifier>()

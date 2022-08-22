@@ -20,6 +20,9 @@ namespace KeysRegister.Forms
         {
             if (e.ColumnIndex == 9 && e.Value != null)
                 e.Value = e.Value.ToString() == "Return" ? "Zwrot" : "Wydanie";
+            if (e.ColumnIndex == 10 && e.Value != null)
+                e.Value = ((DateTime)e.Value).ToLocalTime();
+
         }
 
         private void selectKeyButton_Click(object sender, EventArgs e)

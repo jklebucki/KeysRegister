@@ -7,19 +7,29 @@ namespace KeysRegister.Forms
 {
     internal partial class MainForm : Form
     {
-        private readonly AppDbContext _appDbContext = new();
+        private readonly AppDbContext _appDbContext;
         private readonly IdentifierRepository _identifierRepository;
         private readonly IdentifierService _identifierService;
         private readonly ReleasedKeyRepository _releasedKeyRepository;
         private readonly ReleasedKeyService _releasedKeyService;
+        private readonly SystemSettingsService _settingsService = new();
         internal MainForm()
         {
+            _settingsService.SetConnectionString("localhost", "KeyRegisters", "root", "sasa");
+            _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
             _identifierRepository = new IdentifierRepository(_appDbContext);
             _identifierService = new IdentifierService(_identifierRepository);
             _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
             _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
 
             InitializeComponent();
+            releasesDataGridView.CellFormatting += ReleasesDataGridView_CellFormatting;
+        }
+
+        private void ReleasesDataGridView_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 9 && e.Value != null)
+                e.Value = ((DateTime)e.Value).ToLocalTime();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)

@@ -93,7 +93,7 @@ namespace KeysRegister.Forms
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >=0)
+            if (e.RowIndex >= 0)
             {
                 var row = dataGridView.Rows[e.RowIndex];
                 rfidTextBox.Text = row.Cells[1].Value.ToString();
