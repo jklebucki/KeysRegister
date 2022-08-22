@@ -19,7 +19,7 @@ namespace KeysRegister.Services
         {
             using (StreamWriter sw = new StreamWriter(_settingsPath, false, Encoding.UTF8))
             {
-                var settingsJson = JsonConvert.SerializeObject(SystemSettings,Formatting.Indented);
+                var settingsJson = JsonConvert.SerializeObject(SystemSettings, Formatting.Indented);
                 sw.Write(settingsJson);
             }
         }
