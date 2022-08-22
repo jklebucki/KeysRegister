@@ -19,7 +19,7 @@ namespace KeysRegister.Services
         {
             using (StreamWriter sw = new StreamWriter(_settingsPath, false, Encoding.UTF8))
             {
-                var settingsJson = JsonConvert.SerializeObject(SystemSettings);
+                var settingsJson = JsonConvert.SerializeObject(SystemSettings,Formatting.Indented);
                 sw.Write(settingsJson);
             }
         }
@@ -28,7 +28,8 @@ namespace KeysRegister.Services
         {
             using (StreamReader sr = new StreamReader(_settingsPath, Encoding.UTF8))
             {
-                var settings = JsonConvert.DeserializeObject<SystemSettings>(sr.ReadToEnd());
+                var json = sr.ReadToEnd();
+                var settings = JsonConvert.DeserializeObject<SystemSettings>(json);
                 if (settings != null)
                     SystemSettings = settings;
             }

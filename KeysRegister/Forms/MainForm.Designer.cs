@@ -43,6 +43,7 @@
             this.btnIn = new System.Windows.Forms.Button();
             this.btnOut = new System.Windows.Forms.Button();
             this.releasesDataGridView = new System.Windows.Forms.DataGridView();
+            this.systemSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
@@ -118,19 +119,21 @@
             // employeeToolStripMenuItem
             // 
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.employeeToolStripMenuItem.Text = "Pracownicy";
             this.employeeToolStripMenuItem.Click += new System.EventHandler(this.employeeToolStripMenuItem_Click);
             // 
             // keysToolStripMenuItem
             // 
             this.keysToolStripMenuItem.Name = "keysToolStripMenuItem";
-            this.keysToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.keysToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.keysToolStripMenuItem.Text = "Klucze";
             this.keysToolStripMenuItem.Click += new System.EventHandler(this.keysToolStripMenuItem_Click);
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemSettingsToolStripMenuItem});
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(107, 24);
             this.settingsToolStripMenuItem.Text = "Konfiguracja";
@@ -216,6 +219,13 @@
             this.releasesDataGridView.Size = new System.Drawing.Size(1252, 844);
             this.releasesDataGridView.TabIndex = 0;
             // 
+            // systemSettingsToolStripMenuItem
+            // 
+            this.systemSettingsToolStripMenuItem.Name = "systemSettingsToolStripMenuItem";
+            this.systemSettingsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.systemSettingsToolStripMenuItem.Text = "Ustawienia systemu";
+            this.systemSettingsToolStripMenuItem.Click += new System.EventHandler(this.systemSettingsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -259,5 +269,6 @@
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem reportsToolStripMenuItem;
         private ToolStripMenuItem keyHistoryToolStripMenuItem;
+        private ToolStripMenuItem systemSettingsToolStripMenuItem;
     }
 }

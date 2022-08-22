@@ -1,10 +1,16 @@
-﻿namespace KeysRegister.Settings
+﻿using Newtonsoft.Json;
+
+namespace KeysRegister.Settings
 {
     internal class DatabaseSettings
     {
+        [JsonProperty]
         public string Host { get; protected set; }
+        [JsonProperty]
         public string Database { get; protected set; }
+        [JsonProperty]
         public string Username { get; protected set; }
+        [JsonProperty]
         public string Password { get; protected set; }
 
         internal DatabaseSettings(string host = "", string database = "", string username = "", string password = "")

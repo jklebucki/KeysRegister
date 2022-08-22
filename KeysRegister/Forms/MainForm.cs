@@ -15,7 +15,7 @@ namespace KeysRegister.Forms
         private readonly SystemSettingsService _settingsService = new();
         internal MainForm()
         {
-            _settingsService.SetConnectionString("localhost", "KeyRegisters", "root", "sasa");
+            _settingsService.ReadSettingsFromFile();
             _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
             _identifierRepository = new IdentifierRepository(_appDbContext);
             _identifierService = new IdentifierService(_identifierRepository);
@@ -130,6 +130,12 @@ namespace KeysRegister.Forms
         {
             IdentifierForm identifierForm = new IdentifierForm(_identifierService, ObjectType.Key);
             identifierForm.ShowDialog(this);
+        }
+
+        private void systemSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm(_settingsService);
+            settingsForm.ShowDialog(this);
         }
     }
 }
