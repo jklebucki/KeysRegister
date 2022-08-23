@@ -15,15 +15,34 @@ namespace KeysRegister.Forms
         private readonly SystemSettingsService _settingsService = new();
         internal MainForm()
         {
-            _settingsService.ReadSettingsFromFile();
+            SystemInit();
             _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
             _identifierRepository = new IdentifierRepository(_appDbContext);
             _identifierService = new IdentifierService(_identifierRepository);
             _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
             _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
-
             InitializeComponent();
             releasesDataGridView.CellFormatting += ReleasesDataGridView_CellFormatting;
+        }
+
+        private void SystemInit()
+        {
+
+            var dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
+            while (dbContextCheck.Database.CanConnect())
+            {
+                try
+                {
+                    _settingsService.ReadSettingsFromFile();
+                }
+                catch
+                {
+
+                }
+                SettingsForm settingsForm = new SettingsForm(_settingsService);
+                settingsForm.ShowDialog();
+            }
+
         }
 
         private void ReleasesDataGridView_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
