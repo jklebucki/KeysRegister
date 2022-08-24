@@ -36,7 +36,7 @@ namespace KeysRegister.Forms
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

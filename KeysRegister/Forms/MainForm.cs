@@ -15,6 +15,7 @@ namespace KeysRegister.Forms
         private readonly SystemSettingsService _settingsService = new();
         internal MainForm()
         {
+
             SystemInit();
             _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
             _identifierRepository = new IdentifierRepository(_appDbContext);
