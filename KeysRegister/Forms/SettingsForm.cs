@@ -23,9 +23,15 @@ namespace KeysRegister.Forms
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            _settingsService.SystemSettings.DatabaseSettings.SetDatabaseSettings(hostTextBox.Text, databaseTextBox.Text, usernameTextBox.Text, passwordTextBox.Text);
-            _settingsService.SaveSettingsToFile();
-            this.Close();
+            _settingsService.SystemSettings.DatabaseSettings.SetDatabaseSettings(hostTextBox.Text, databaseTextBox.Text, usernameTextBox.Text, passwordTextBox.Text);         
+            if (_settingsService.DatabaseCanConnect())
+            {
+                _settingsService.SaveSettingsToFile();
+                Close();
+            } else
+            {
+
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

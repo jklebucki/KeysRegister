@@ -27,20 +27,23 @@ namespace KeysRegister.Forms
 
         private void SystemInit()
         {
-
             var dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
-            while (dbContextCheck.Database.CanConnect())
+            while (!dbContextCheck.Database.CanConnect())
             {
                 try
                 {
                     _settingsService.ReadSettingsFromFile();
+                    dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
                 }
                 catch
                 {
 
                 }
-                SettingsForm settingsForm = new SettingsForm(_settingsService);
-                settingsForm.ShowDialog();
+                if(!dbContextCheck.Database.CanConnect())
+                {
+                    SettingsForm settingsForm = new SettingsForm(_settingsService);
+                    settingsForm.ShowDialog();
+                }
             }
 
         }

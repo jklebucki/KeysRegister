@@ -1,4 +1,5 @@
-﻿using KeysRegister.Settings;
+﻿using KeysRegister.Data;
+using KeysRegister.Settings;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -43,6 +44,12 @@ namespace KeysRegister.Services
         private string SetSettingsPath()
         {
             return Path.Combine(Directory.GetCurrentDirectory(), "SystemSettings.json");
+        }
+
+        public bool DatabaseCanConnect()
+        {
+            AppDbContext _appDbContext = new AppDbContext(SystemSettings.DatabaseSettings.GetConnectionString());
+            return _appDbContext.Database.CanConnect();
         }
     }
 }
