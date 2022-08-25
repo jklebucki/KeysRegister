@@ -13,40 +13,50 @@ namespace KeysRegister.Forms
         private readonly ReleasedKeyRepository _releasedKeyRepository;
         private readonly ReleasedKeyService _releasedKeyService;
         private readonly SystemSettingsService _settingsService = new();
-        internal MainForm()
+        private bool settingsResult = true;
+        internal MainForm(string[] args)
         {
-
-            SystemInit();
-            _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
-            _identifierRepository = new IdentifierRepository(_appDbContext);
-            _identifierService = new IdentifierService(_identifierRepository);
-            _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
-            _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
             InitializeComponent();
-            releasesDataGridView.CellFormatting += ReleasesDataGridView_CellFormatting;
+            settingsResult = SystemInit(args);
+            if (settingsResult)
+            {
+                _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
+                _identifierRepository = new IdentifierRepository(_appDbContext);
+                _identifierService = new IdentifierService(_identifierRepository);
+                _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
+                _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
+                releasesDataGridView.CellFormatting += ReleasesDataGridView_CellFormatting;
+            }
         }
 
-        private void SystemInit()
+        private bool SystemInit(string[] args)
         {
-            var dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
-            while (!dbContextCheck.Database.CanConnect())
+            var result = false;
+            var dbInit = args.Length > 0 && args[0].ToLower() == "-i" ? true : false;
+            if (dbInit)
+                result = HandlingSettings(dbInit);
+            try
             {
-                try
-                {
-                    _settingsService.ReadSettingsFromFile();
-                    dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
-                }
-                catch
-                {
-
-                }
-                if(!dbContextCheck.Database.CanConnect())
-                {
-                    SettingsForm settingsForm = new SettingsForm(_settingsService);
-                    settingsForm.ShowDialog();
-                }
+                _settingsService.ReadSettingsFromFile();
             }
+            catch
+            {
+                result = HandlingSettings(dbInit);
+            }
+            var dbContextCheck = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
+            if (!dbContextCheck.Database.CanConnect())
+                result = HandlingSettings(dbInit);
+            else
+                result = true;
+            return result;
+        }
 
+        private bool HandlingSettings(bool dbInit)
+        {
+            SettingsForm settingsForm = new SettingsForm(_settingsService, dbInit);
+            if (settingsForm.ShowDialog() == DialogResult.Cancel)
+                return false;
+            return true;
         }
 
         private void ReleasesDataGridView_CellFormatting(object? sender, DataGridViewCellFormattingEventArgs e)
@@ -62,7 +72,13 @@ namespace KeysRegister.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            SetReleasesDataGridView();
+            if (!settingsResult)
+            {
+                MessageBox.Show("Brak dostêpu do bazy danych - zamykam program", "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            else
+                SetReleasesDataGridView();
         }
 
         private void btnOut_Click(object sender, EventArgs e)
@@ -157,7 +173,7 @@ namespace KeysRegister.Forms
 
         private void systemSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SettingsForm settingsForm = new SettingsForm(_settingsService);
+            SettingsForm settingsForm = new SettingsForm(_settingsService, false);
             settingsForm.ShowDialog(this);
         }
     }

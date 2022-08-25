@@ -42,6 +42,7 @@
             this.buttonsLableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.applyButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.infoLabel = new System.Windows.Forms.Label();
             this.mainTableLayoutPanel.SuspendLayout();
             this.databaseTableLayoutPanel.SuspendLayout();
             this.buttonsLableLayoutPanel.SuspendLayout();
@@ -200,6 +201,7 @@
             this.buttonsLableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.buttonsLableLayoutPanel.Controls.Add(this.applyButton, 3, 3);
             this.buttonsLableLayoutPanel.Controls.Add(this.cancelButton, 2, 3);
+            this.buttonsLableLayoutPanel.Controls.Add(this.infoLabel, 0, 0);
             this.buttonsLableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonsLableLayoutPanel.Location = new System.Drawing.Point(3, 430);
             this.buttonsLableLayoutPanel.Name = "buttonsLableLayoutPanel";
@@ -233,6 +235,20 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // infoLabel
+            // 
+            this.infoLabel.AutoSize = true;
+            this.buttonsLableLayoutPanel.SetColumnSpan(this.infoLabel, 4);
+            this.infoLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.infoLabel.Location = new System.Drawing.Point(3, 3);
+            this.infoLabel.Margin = new System.Windows.Forms.Padding(3);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Padding = new System.Windows.Forms.Padding(3);
+            this.infoLabel.Size = new System.Drawing.Size(928, 38);
+            this.infoLabel.TabIndex = 2;
+            this.infoLabel.Text = "--------";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -246,6 +262,7 @@
             this.databaseTableLayoutPanel.ResumeLayout(false);
             this.databaseTableLayoutPanel.PerformLayout();
             this.buttonsLableLayoutPanel.ResumeLayout(false);
+            this.buttonsLableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -266,5 +283,6 @@
         private TableLayoutPanel buttonsLableLayoutPanel;
         private Button applyButton;
         private Button cancelButton;
+        private Label infoLabel;
     }
 }

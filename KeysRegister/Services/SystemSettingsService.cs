@@ -1,5 +1,6 @@
 ﻿using KeysRegister.Data;
 using KeysRegister.Settings;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -18,6 +19,7 @@ namespace KeysRegister.Services
 
         internal void SaveSettingsToFile()
         {
+
             using (StreamWriter sw = new StreamWriter(_settingsPath, false, Encoding.UTF8))
             {
                 var settingsJson = JsonConvert.SerializeObject(SystemSettings, Formatting.Indented);
@@ -48,8 +50,23 @@ namespace KeysRegister.Services
 
         public bool DatabaseCanConnect()
         {
-            AppDbContext _appDbContext = new AppDbContext(SystemSettings.DatabaseSettings.GetConnectionString());
-            return _appDbContext.Database.CanConnect();
+            AppDbContext appDbContext = new AppDbContext(SystemSettings.DatabaseSettings.GetConnectionString());
+            return appDbContext.Database.CanConnect();
+        }
+
+        public string InitDatabase()
+        {
+            try
+            {
+                AppDbContext appDbContextInit = new AppDbContext(SystemSettings.DatabaseSettings.GetConnectionString());
+                appDbContextInit.Database.Migrate();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+            }
+
         }
     }
 }
