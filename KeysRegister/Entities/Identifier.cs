@@ -24,5 +24,13 @@
             Description = description;
             Type = type;
         }
+
+        internal void Update(string rfidCode, string firstName, string lastName, string description)
+        {
+            RfidCode = rfidCode;
+            FirstName = firstName;
+            LastName = lastName;
+            Description = description;
+        }
     }
 }

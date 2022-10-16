@@ -60,5 +60,15 @@ namespace KeysRegister.Services
         {
             return _identifierRepository.AddIdentifier(identifier);
         }
+
+        internal void RemoveIdentifier(Identifier identifier)
+        {
+            _identifierRepository.RemoveIdentifier(identifier);
+        }
+
+        internal void UpdateIdentifier(Identifier identifier)
+        {
+            _identifierRepository.UpdateIdentifier(identifier);
+        }
     }
 }

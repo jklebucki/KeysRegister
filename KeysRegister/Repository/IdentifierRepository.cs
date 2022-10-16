@@ -73,5 +73,21 @@ namespace KeysRegister.Repository
             _appDbContext.SaveChanges();
             return identifier.Id;
         }
+
+        internal void RemoveIdentifier(Identifier identifier)
+        {
+            _appDbContext.Remove(identifier);
+            _appDbContext.SaveChanges();
+        }
+
+        internal void UpdateIdentifier(Identifier identifier)
+        {
+            var identifierToUpdate = _appDbContext.Identifiers.Find(identifier.Id);
+            if (identifierToUpdate != null)
+                identifierToUpdate.Update(identifier.RfidCode, identifier.FirstName, identifier.LastName, identifier.Description);
+            _appDbContext.Entry(identifierToUpdate).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _appDbContext.Update(identifierToUpdate);
+            _appDbContext.SaveChanges();
+        }
     }
 }
