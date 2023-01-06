@@ -9,6 +9,18 @@ namespace KeysRegister.Data
         internal AppDbContext(string connectionString)
         {
             _connectionString = connectionString;
+            InitializeDatabase();
+        }
+        private void InitializeDatabase()
+        {
+            try
+            {
+                this.Database.EnsureCreated();
+            }
+            catch 
+            {
+                //ignore
+            }
         }
 
         public DbSet<Identifier> Identifiers { get; set; }

@@ -20,13 +20,27 @@ namespace KeysRegister.Forms
             settingsResult = SystemInit(args);
             if (settingsResult)
             {
-                _appDbContext = new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
+                _appDbContext = GetAppDbContext();
                 _identifierRepository = new IdentifierRepository(_appDbContext);
                 _identifierService = new IdentifierService(_identifierRepository);
                 _releasedKeyRepository = new ReleasedKeyRepository(_appDbContext);
                 _releasedKeyService = new ReleasedKeyService(_releasedKeyRepository);
                 releasesDataGridView.CellFormatting += ReleasesDataGridView_CellFormatting;
             }
+        }
+
+        private AppDbContext GetAppDbContext()
+        {
+            try
+            {
+                return new AppDbContext(_settingsService.SystemSettings.DatabaseSettings.GetConnectionString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Baza danych niedostêpna: {ex.Message}");
+            }
+            this.Close();
+            return null;
         }
 
         private bool SystemInit(string[] args)
